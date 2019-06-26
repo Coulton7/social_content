@@ -323,7 +323,7 @@ class SocialContentLinkedin extends SocialContent {
       'method' => 'POST',
       'data' => drupal_http_build_query($fields),
     );
-    $result = drupal_http_request($settings['oauth_url'] . '/' . $global_settings['api_version'] . '/accessToken', $options);
+    $result = drupal_http_request($settings['oauth_url'] . '/accessToken', $options);
     $data = json_decode($result->data);
     if ($result->code != 200) {
       drupal_set_message(t('Error: @error', array('@error' => $result->data)), 'error');
