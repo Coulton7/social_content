@@ -115,7 +115,7 @@ class SocialContentLinkedin extends SocialContent {
       '#type' => 'textfield',
       '#title' => t('API version'),
       '#description' => t("i.e. 'v1'."),
-      '#default_value' => isset($settings['api_version']) ? $settings['api_version'] : 'v1',
+      '#default_value' => isset($settings['api_version']) ? $settings['api_version'] : 'v2',
       '#required' => TRUE,
     );
     $form['update_url'] = array(
@@ -133,7 +133,7 @@ class SocialContentLinkedin extends SocialContent {
       '#description' => t('Do not include trailing slash. Default is !url', array(
         '!url' => 'https://www.linkedin.com/uas/oauth2',
       )),
-      '#default_value' => isset($settings['oauth_url']) ? $settings['oauth_url'] : 'https://www.linkedin.com/uas/oauth2',
+      '#default_value' => isset($settings['oauth_url']) ? $settings['oauth_url'] : 'https://www.linkedin.com/oauth2',
       '#required' => TRUE,
     );
     $form['client_id'] = array(
