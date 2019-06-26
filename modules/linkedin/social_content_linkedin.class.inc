@@ -114,7 +114,7 @@ class SocialContentLinkedin extends SocialContent {
     $form['api_version'] = array(
       '#type' => 'textfield',
       '#title' => t('API version'),
-      '#description' => t("i.e. 'v1'."),
+      '#description' => t("i.e. 'v2'."),
       '#default_value' => isset($settings['api_version']) ? $settings['api_version'] : 'v2',
       '#required' => TRUE,
     );
@@ -131,7 +131,7 @@ class SocialContentLinkedin extends SocialContent {
       '#type' => 'textfield',
       '#title' => t('OAuth 2 URL'),
       '#description' => t('Do not include trailing slash. Default is !url', array(
-        '!url' => 'https://www.linkedin.com/uas/oauth2',
+        '!url' => 'https://www.linkedin.com/oauth2',
       )),
       '#default_value' => isset($settings['oauth_url']) ? $settings['oauth_url'] : 'https://www.linkedin.com/oauth2',
       '#required' => TRUE,
@@ -323,7 +323,7 @@ class SocialContentLinkedin extends SocialContent {
       'method' => 'POST',
       'data' => drupal_http_build_query($fields),
     );
-    $result = drupal_http_request($settings['oauth_url'] . '/accessToken', $options);
+    $result = drupal_http_request($settings['oauth_url'] . '/' . $global_settings['api_version'] . '/accessToken', $options);
     $data = json_decode($result->data);
     if ($result->code != 200) {
       drupal_set_message(t('Error: @error', array('@error' => $result->data)), 'error');
