@@ -206,7 +206,7 @@ class SocialContentLinkedin extends SocialContent {
         $params['count'] = $settings['limit'];
       }
 
-      $url = $global_settings['api_url'] . '/' . $global_settings['api_version'] . '/organizations/' . $settings['company_id'] . '/updates';
+      $url = $global_settings['api_url'] . '/' . $global_settings['api_version'] . '/ugcPosts?q=authors&authors=List(urn%3Ali%3Aorganization%3A'$global_settings['company_id']')';
       $result = $this->httpRequest(url($url, array(
         'query' => $params,
         'external' => TRUE,
