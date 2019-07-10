@@ -9,7 +9,7 @@ files[]= social_content_views_handler_filter_source.inc
 configure = admin/config/services/social-content/global
 
 ; Information added by Drupal.org packaging script on 2017-12-15
-version = "7.x-2.0-beta12"
+version = "7.x-2.0-beta13"
 core = "7.x"
 project = "social_content"
 datestamp = "1513378388"
