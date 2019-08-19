@@ -425,7 +425,7 @@ class SocialContentInstagram extends SocialContent {
       'client_id' => $global_settings['client_id'],
       'redirect_uri' => url($global_settings['redirect_uri'], array('query' => array(drupal_get_destination()), 'absolute' => TRUE)),
       'response_type' => 'code',
-      'scope' => 'public_content',
+      'scope' => 'basic',
     );
     return url($global_settings['api_url'] . '/oauth/authorize', array('query' => $query, 'external' => TRUE));
   }
